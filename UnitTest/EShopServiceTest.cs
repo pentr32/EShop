@@ -16,12 +16,6 @@ namespace UnitTest
             var options = new DbContextOptionsBuilder<EShopContext>()
                 .UseInMemoryDatabase(databaseName: "EShopDb_InMemory")
                 .Options;
-
-            //using(var context = new EShopContext(options))
-            //{
-            //    var productService = new ListProductService(context);
-            //    var dropdownItems = ProductFilterDropdownService.GetFilterDropDownValues(ProductFilterBy.ByBrand).ToList();
-            //}
         }
     }
 }
