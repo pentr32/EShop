@@ -1,0 +1,20 @@
+﻿@page
+@model WebUI.Pages.EShops.ListModel
+@{
+    ViewData["Title"] = "List";
+}
+
+<form>
+    <p>
+        <select asp-for="OrderBy" asp-items="@Html.GetEnumSelectList<ServiceLayer.ProductService.QueryObjects.OrderByOptions>()"></select>
+        @*<select asp-for="FilterBy" asp-items="@Html.GetEnumSelectList<ServiceLayer.ProductService.QueryObjects.ProductFilterBy>()"></select>*@
+        <input type="submit" value="Filter" />
+    </p>
+</form>
+
+<div class="card-deck">
+    @foreach (var product in Model.Products)
+    {
+        <partial name="_Summary" model="product" />
+    }
+</div>

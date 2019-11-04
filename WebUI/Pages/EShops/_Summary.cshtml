@@ -1,0 +1,24 @@
+﻿@using ServiceLayer.ProductService.ProductDto
+@model ProductListDto
+
+<div class="col-sm-3">
+    <div class="card my-3">
+        <img class="card-img-top" src="~/Images/@Model.ImageName">
+        <div class="card-body">
+            <h5 class="card-title">@Model.Brand</h5>
+            <p class="card-text">Model: @Model.Model</p>
+            <p class="card-text">Price: @Model.Price DKK</p>
+        </div>
+        <div class="card-footer bg-farve-sort">
+            <button class="btn btn-secondary mr-2" asp-page="./Detail" asp-route-restaurantId="@Model.ProductID">
+                <i class="fas fa-info-circle"></i>
+            </button>
+            <button class="btn btn-secondary mr-2" asp-page="./Edit" asp-route-restaurantId="@Model.ProductID">
+                <i class="fas fa-edit"></i>
+            </button>
+            <button class="btn btn-secondary" asp-page="./Delete" asp-route-restaurantId="@Model.ProductID">
+                <i class="fas fa-trash"></i>
+            </button>
+        </div>
+    </div>
+</div>

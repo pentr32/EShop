@@ -1,0 +1,32 @@
+﻿body {
+    /*margin: 0 auto;
+    height: 100%;
+    width: 100%;*/
+    font-family: 'Segoe UI Light', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(120deg, #d0d0d0,#ffffff,#d2d2d2) center fixed no-repeat;
+}
+
+.eshop-header-title {
+    font: 400 25px/1.3 'Lobster Two', Helvetica, sans-serif;
+    color: #2b2b2b;
+    text-shadow: 4px 4px 0px rgba(0,0,0,0.1);
+}
+
+.bg-farve-sort {
+    /*background-color: #d2d2d2;*/
+    border-radius: 10px !important;
+}
+
+.bg-farve-hvid {
+    background-color: #e6e6e6;
+    border-radius: 10px;
+}
+
+.card {
+    border-radius: 10px;
+    box-shadow: 0 0 1px 0 #1e2225;
+}
+
+.card-img-top {
+    border-radius: 10px !important;
+}
