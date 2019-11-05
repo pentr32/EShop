@@ -29,7 +29,7 @@
 }
 
     .card:hover {
-        transform: scale(1.1);
+        transform: scale(1.05);
     }
 
 .card-footer {
@@ -38,4 +38,8 @@
 
 .card-img-top {
     border-radius: 10px !important;
+}
+
+.footer {
+    background-color: #343a40;
 }
