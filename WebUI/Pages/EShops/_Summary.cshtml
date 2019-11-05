@@ -2,18 +2,25 @@
 @model ProductListDto
 
 <div class="col-sm-3">
-    <div class="card my-3">
-        <img class="card-img-top" src="~/Images/@Model.ImageName">
+    <div class="card my-4">
+        <img class="card-img-top p-4" src="~/Images/@Model.ImageName">
         <div class="card-body">
-            <h3 class="card-title font-weight-bolder">@Model.Brand</h3>
-            <p class="card-text"><span class="font-weight-bolder">Model: </span>@Model.Model</p>
-            <p class="card-text"><span class="font-weight-bolder">Price: </span>@Model.Price DKK</p>
+            <h2 class="card-title font-weight-bolder">@Model.Brand</h2>
+            <hr />
+            <p class="card-text h5"><span class="font-weight-bolder">Model: </span>@Model.Model</p>
+            <p class="card-text h5"><span class="font-weight-bolder">Price: </span>@Model.Price DKK</p>
+            <br />
+            <div class="form-inline justify-content-center">
+                <button class="btn btn-dark mr-2">
+                    <i class="fas fa-cart-plus mr-2"></i>Add to cart
+                </button>
+            </div>
         </div>
         <div class="card-footer bg-farve-sort form-inline justify-content-center">
-            <a class="btn btn-outline-primary mr-2" asp-page="./Detail" asp-route-ProductID="@Model.ProductID">
+            <a class="btn btn-outline-dark mr-2" asp-page="./Detail" asp-route-ProductID="@Model.ProductID">
                 <i class="fas fa-list-ul"></i>
             </a>
-            <a class="btn btn-outline-primary mr-2" asp-page="./Edit" asp-route-ProductID="@Model.ProductID">
+            <a class="btn btn-outline-dark mr-2" asp-page="./Edit" asp-route-ProductID="@Model.ProductID">
                 <i class="far fa-edit"></i>
             </a>
             <a class="btn btn-outline-danger" asp-page="./Delete" asp-route-ProductID="@Model.ProductID">

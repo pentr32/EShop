@@ -5,7 +5,10 @@
     ViewData["Title"] = "Detail";
 }
 
-<h1>Details for product with ID: @Model.Product.ProductID</h1>
+<div class="bg-farve-sort mb-2">
+    <h1 class="display-4">Details for product with ID: @Model.Product.ProductID</h1>
+</div>
+
 <div>
     <img src="~/Images/@Model.Product.ImageName" alt="Alternate Text" class="img-thumbnail my-4" />
 </div>

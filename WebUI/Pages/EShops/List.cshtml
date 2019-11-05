@@ -7,17 +7,23 @@
 <div class="text-center bg-farve-sort mb-2">
     <h1 class="display-4">List of all products.</h1>
 </div>
+<br />
 
 <div class="form-inline row justify-content-center">
     <form>
         <p>
             <select class="form-control" asp-for="OrderBy" asp-items="@Html.GetEnumSelectList<ServiceLayer.ProductService.QueryObjects.OrderByOptions>()"></select>
             <select class="form-control" asp-for="FilterBy" asp-items="@Html.GetEnumSelectList<ServiceLayer.ProductService.QueryObjects.ProductFilterBy>()"></select>
-            <input class="form-control" type="text" asp-for="SearchString" />
-            <input class="btn btn-primary" type="submit" value="Filter" />
+            <input class="form-control" placeholder="Filter value..." type="text" asp-for="SearchString" />
+            <input class="btn btn-dark" type="submit" value="Filter" />
         </p>
     </form>
 </div>
+<br />
+
+<a class="btn btn-success mr-2" asp-page="./NewProduct">
+    <i class="fas fa-plus mr-2"></i>Add a new product
+</a>
 <hr />
 
 <div class="card-deck">

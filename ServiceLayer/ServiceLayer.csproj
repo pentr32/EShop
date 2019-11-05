@@ -12,6 +12,8 @@
     <Folder Include="CustomerService\Concrete\" />
     <Folder Include="CustomerService\CustomerDto\" />
     <Folder Include="CustomerService\QueryObjects\" />
+    <Folder Include="BrandService\" />
+    <Folder Include="MaterialFrameTypeService\" />
     <Folder Include="OrderService\Concrete\" />
     <Folder Include="OrderService\QueryObjects\" />
     <Folder Include="OrderService\OrderDto\" />
