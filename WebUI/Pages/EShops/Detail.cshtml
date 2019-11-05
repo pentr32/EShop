@@ -1,0 +1,64 @@
+﻿@page "{ProductID:int}"
+
+@model WebUI.Pages.EShops.DetailModel
+@{
+    ViewData["Title"] = "Detail";
+}
+
+<h1>Details for product with ID: @Model.Product.ProductID</h1>
+<div>
+    <img src="~/Images/@Model.Product.ImageName" alt="Alternate Text" class="img-thumbnail my-4" />
+</div>
+
+<div>
+    <h2>@Model.Product.Brand</h2>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            ID
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Product.ProductID
+        </dd>
+        <dt class="col-sm-2">
+            Model
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Product.Model
+        </dd>
+        <dt class="col-sm-2">
+            Price
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Product.Price DKK
+        </dd>
+        <dt class="col-sm-2">
+            Date
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Product.Year
+        </dd>        
+        <dt class="col-sm-2">
+            Storage
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Product.Storage GB
+        </dd>        
+        <dt class="col-sm-2">
+            Material frame type
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Product.MaterialFrameType
+        </dd>        
+        <dt class="col-sm-2">
+            Description
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Product.Description
+        </dd>
+    </dl>
+</div>
+
+<div>
+    <a class="btn btn-primary" asp-page="./List"><i class="fas fa-arrow-left mr-2"></i>Go back to list</a>
+</div>

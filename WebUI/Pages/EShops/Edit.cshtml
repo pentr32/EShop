@@ -1,0 +1,105 @@
+﻿@page "{ProductID:int}"
+@model WebUI.Pages.EShops.EditModel
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit details for product with ID: @Model.Product.ProductID</h1>
+<div>
+    <img src="~/Images/@Model.Product.ImageName" alt="Alternate Text" class="img-thumbnail my-4" />
+</div>
+
+<h2>@Model.Product.Brand</h2>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Product.ProductID" />
+            <div class="form-group">
+                <label asp-for="Product.Model" class="control-label"></label>
+                <input asp-for="Product.Model" class="form-control" />
+                <span asp-validation-for="Product.Model" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Product.Price" class="control-label"></label>
+                <input asp-for="Product.Price" class="form-control" />
+                <span asp-validation-for="Product.Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Product.Year" class="control-label"></label>
+                <input asp-for="Product.Year" class="form-control" />
+                <span asp-validation-for="Product.Year" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Product.Storage" class="control-label"></label>
+                <input asp-for="Product.Storage" class="form-control" />
+                <span asp-validation-for="Product.Storage" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Product.Description" class="control-label"></label>
+                <textarea asp-for="Product.Description" class="form-control"></textarea>
+                <span asp-validation-for="Product.Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-success">
+                    <i class="fas fa-check mr-2"></i>Save
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a class="btn btn-primary" asp-page="./List"><i class="fas fa-arrow-left mr-2"></i>Go back to list</a>
+</div>
+
+@*<div>
+    <h2>@Model.Product.Brand</h2>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            ID
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Product.ProductID
+        </dd>
+        <dt class="col-sm-2">
+            Model
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Product.Model
+        </dd>
+        <dt class="col-sm-2">
+            Price
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Product.Price DKK
+        </dd>
+        <dt class="col-sm-2">
+            Date
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Product.Year
+        </dd>
+        <dt class="col-sm-2">
+            Storage
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Product.Storage GB
+        </dd>
+        <dt class="col-sm-2">
+            Material frame type
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Product.MaterialFrameType
+        </dd>
+        <dt class="col-sm-2">
+            Description
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Product.Description
+        </dd>
+    </dl>
+</div>*@
+

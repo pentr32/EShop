@@ -20,6 +20,7 @@ namespace WebUI.Pages.EShops
         public OrderByOptions OrderBy { get; set; }
         [BindProperty(SupportsGet = true)]
         public ProductFilterBy FilterBy { get; set; }
+        public string SearchString { get; set; }
 
         private readonly ListProductService _productService;
 
@@ -28,12 +29,13 @@ namespace WebUI.Pages.EShops
             _productService = productService;
         }
 
-        public void OnGet()
+        public void OnGet(string SearchString)
         {
             ProductListSortOptions Option = new ProductListSortOptions()
             {
                 OrderByOptions = OrderBy,
-                FilterBy = FilterBy
+                FilterBy = FilterBy,
+                FilterValue = SearchString
             };
 
             Products = _productService.SortFilterPage(Option).ToList();

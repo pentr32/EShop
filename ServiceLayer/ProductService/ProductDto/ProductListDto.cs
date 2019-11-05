@@ -16,6 +16,7 @@ namespace ServiceLayer.ProductService.ProductDto
         public double Storage { get; set; }
 
         public string Brand { get; set; }
+        public int BrandID { get; set; }
         public string MaterialFrameType { get; set; }
     }
 }

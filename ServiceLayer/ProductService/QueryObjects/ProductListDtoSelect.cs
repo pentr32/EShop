@@ -22,6 +22,7 @@ namespace ServiceLayer.ProductService.QueryObjects
                 Year = p.Year,
                 Storage = p.Storage,
                 Brand = p.Brand.Name,
+                BrandID = p.Brand.BrandID,
                 MaterialFrameType = p.MaterialFrameType.Type
             });
         }

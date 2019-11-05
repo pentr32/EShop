@@ -4,13 +4,21 @@
     ViewData["Title"] = "List";
 }
 
-<form>
-    <p>
-        <select asp-for="OrderBy" asp-items="@Html.GetEnumSelectList<ServiceLayer.ProductService.QueryObjects.OrderByOptions>()"></select>
-        @*<select asp-for="FilterBy" asp-items="@Html.GetEnumSelectList<ServiceLayer.ProductService.QueryObjects.ProductFilterBy>()"></select>*@
-        <input type="submit" value="Filter" />
-    </p>
-</form>
+<div class="text-center bg-farve-sort mb-2">
+    <h1 class="display-4">List of all products.</h1>
+</div>
+
+<div class="form-inline row justify-content-center">
+    <form>
+        <p>
+            <select class="form-control" asp-for="OrderBy" asp-items="@Html.GetEnumSelectList<ServiceLayer.ProductService.QueryObjects.OrderByOptions>()"></select>
+            <select class="form-control" asp-for="FilterBy" asp-items="@Html.GetEnumSelectList<ServiceLayer.ProductService.QueryObjects.ProductFilterBy>()"></select>
+            <input class="form-control" type="text" asp-for="SearchString" />
+            <input class="btn btn-primary" type="submit" value="Filter" />
+        </p>
+    </form>
+</div>
+<hr />
 
 <div class="card-deck">
     @foreach (var product in Model.Products)

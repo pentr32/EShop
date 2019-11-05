@@ -5,20 +5,20 @@
     <div class="card my-3">
         <img class="card-img-top" src="~/Images/@Model.ImageName">
         <div class="card-body">
-            <h5 class="card-title">@Model.Brand</h5>
-            <p class="card-text">Model: @Model.Model</p>
-            <p class="card-text">Price: @Model.Price DKK</p>
+            <h3 class="card-title font-weight-bolder">@Model.Brand</h3>
+            <p class="card-text"><span class="font-weight-bolder">Model: </span>@Model.Model</p>
+            <p class="card-text"><span class="font-weight-bolder">Price: </span>@Model.Price DKK</p>
         </div>
-        <div class="card-footer bg-farve-sort">
-            <button class="btn btn-secondary mr-2" asp-page="./Detail" asp-route-restaurantId="@Model.ProductID">
-                <i class="fas fa-info-circle"></i>
-            </button>
-            <button class="btn btn-secondary mr-2" asp-page="./Edit" asp-route-restaurantId="@Model.ProductID">
-                <i class="fas fa-edit"></i>
-            </button>
-            <button class="btn btn-secondary" asp-page="./Delete" asp-route-restaurantId="@Model.ProductID">
-                <i class="fas fa-trash"></i>
-            </button>
+        <div class="card-footer bg-farve-sort form-inline justify-content-center">
+            <a class="btn btn-outline-primary mr-2" asp-page="./Detail" asp-route-ProductID="@Model.ProductID">
+                <i class="fas fa-list-ul"></i>
+            </a>
+            <a class="btn btn-outline-primary mr-2" asp-page="./Edit" asp-route-ProductID="@Model.ProductID">
+                <i class="far fa-edit"></i>
+            </a>
+            <a class="btn btn-outline-danger" asp-page="./Delete" asp-route-ProductID="@Model.ProductID">
+                <i class="far fa-trash-alt"></i>
+            </a>
         </div>
     </div>
 </div>

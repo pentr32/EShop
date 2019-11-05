@@ -12,8 +12,12 @@ namespace ServiceLayer.ProductService.QueryObjects
     {
         [Display(Name = "All")]
         NoFilter = 0,
+        [Display(Name = "By ProductID")]
+        ByProductID,
         [Display(Name = "By Brand")]
         ByBrand,
+        [Display(Name = "By BrandID")]
+        ByBrandID,
         [Display(Name = "By MaterialFrameType")]
         ByMaterialFrameType
     }
@@ -29,8 +33,14 @@ namespace ServiceLayer.ProductService.QueryObjects
                 case ProductFilterBy.NoFilter:
                     return products;
 
+                case ProductFilterBy.ByProductID:
+                    return products.Where(p => p.ProductID == Convert.ToInt32(filterValue));
+
                 case ProductFilterBy.ByBrand:
                     return products.Where(p => p.Brand.StartsWith(filterValue));
+
+                case ProductFilterBy.ByBrandID:
+                    return products.Where(p => p.BrandID == Convert.ToInt32(filterValue));
 
                 case ProductFilterBy.ByMaterialFrameType:
                     return products.Where(p => p.MaterialFrameType.StartsWith(filterValue));

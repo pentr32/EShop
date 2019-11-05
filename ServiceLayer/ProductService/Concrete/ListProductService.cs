@@ -1,4 +1,5 @@
 ﻿using DataLayer;
+using DataLayer.Entities;
 using Microsoft.EntityFrameworkCore;
 using ServiceLayer.ProductService.ProductDto;
 using ServiceLayer.ProductService.QueryObjects;
@@ -25,6 +26,22 @@ namespace ServiceLayer.ProductService.Concrete
                 .OrderProductsBy(option.OrderByOptions)
                 .FilterProductsBy(option.FilterBy, option.FilterValue);
             return query;
+        }
+
+        public void AddProduct(Product newProduct)
+        {
+            _context.Products.Add(newProduct);
+        }
+
+        public Product GetProductByID(int productID)
+        {
+            return _context.Products.Find(productID);
+        }
+
+        public void DeleteProduct(int ProductID)
+        {
+            var product = GetProductByID(ProductID);
+            if (product != null) _context.Products.Remove(product);
         }
     }
 }
