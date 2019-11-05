@@ -18,5 +18,6 @@ namespace ServiceLayer.ProductService.ProductDto
         public string Brand { get; set; }
         public int BrandID { get; set; }
         public string MaterialFrameType { get; set; }
+        public  int MaterialFrameTypeID { get; set; }
     }
 }

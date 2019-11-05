@@ -10,6 +10,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using ServiceLayer.BrandService.Concrete;
+using ServiceLayer.MaterialFrameTypeService.Concrete;
 using ServiceLayer.ProductService.Concrete;
 
 namespace WebUI
@@ -29,6 +31,8 @@ namespace WebUI
             services.AddDbContext<EShopContext>();
 
             services.AddScoped<ListProductService>();
+            services.AddScoped<ListBrandService>();
+            services.AddScoped<ListMaterialFrameTypeService>();
             services.AddScoped<ProductFilterDropdownService>();
 
             services.AddDistributedMemoryCache();
@@ -43,7 +47,7 @@ namespace WebUI
             services.AddRazorPages()
                .AddRazorPagesOptions(options =>
                {
-                   options.Conventions.AddPageRoute("/EShops/List", "");
+                   options.Conventions.AddPageRoute("/EShops/Products", "");
                });
 
             services.AddControllers();

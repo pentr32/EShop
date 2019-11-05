@@ -12,7 +12,7 @@ using ServiceLayer.ProductService.QueryObjects;
 
 namespace WebUI.Pages.EShops
 {
-    public class ListModel : PageModel
+    public class ProductsModel : PageModel
     {
         public IEnumerable<ProductListDto> Products { get; set; }
 
@@ -24,7 +24,7 @@ namespace WebUI.Pages.EShops
 
         private readonly ListProductService _productService;
 
-        public ListModel(ListProductService productService)
+        public ProductsModel(ListProductService productService)
         {
             _productService = productService;
         }

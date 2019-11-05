@@ -1,0 +1,23 @@
+﻿@page
+@model WebUI.Pages.EShops.BrandsModel
+@{
+    ViewData["Title"] = "Brands";
+}
+
+<div class="text-center bg-farve-sort mb-2">
+    <h1 class="display-4">List of all brands.</h1>
+</div>
+<br />
+
+<a class="btn btn-success mr-2" asp-page="./NewProduct">
+    <i class="fas fa-plus mr-2"></i>Add a new product
+</a>
+<hr />
+
+<div class="card-deck h-100">
+    @foreach (var product in Model.Brands)
+    {
+        <partial name="_SummaryBrands" model="product" />
+    }
+</div>
+

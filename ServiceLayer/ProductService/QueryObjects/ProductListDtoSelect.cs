@@ -23,7 +23,8 @@ namespace ServiceLayer.ProductService.QueryObjects
                 Storage = p.Storage,
                 Brand = p.Brand.Name,
                 BrandID = p.Brand.BrandID,
-                MaterialFrameType = p.MaterialFrameType.Type
+                MaterialFrameType = p.MaterialFrameType.Type,
+                MaterialFrameTypeID = p.MaterialFrameType.MaterialFrameTypeID
             });
         }
     }

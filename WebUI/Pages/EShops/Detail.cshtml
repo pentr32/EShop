@@ -10,7 +10,7 @@
 </div>
 
 <div>
-    <img src="~/Images/@Model.Product.ImageName" alt="Alternate Text" class="img-thumbnail my-4" />
+    <img src="~/Images/ProductImages/@Model.Product.ImageName" alt="Alternate Text" class="img-thumbnail my-4" />
 </div>
 
 <div>
@@ -30,6 +30,12 @@
             <h5>@Model.Product.Model</h5>
         </div>
         <div class="col-sm-3">
+            <h5 class="font-weight-bolder">Color</h5>
+        </div>
+        <div class="col-sm-9">
+            <h5>@Model.Product.Color</h5>
+        </div>
+        <div class="col-sm-3">
             <h5 class="font-weight-bolder">Price</h5>
         </div>
         <div class="col-sm-9">
@@ -40,19 +46,19 @@
         </div>
         <div class="col-sm-9">
             <h5>@Model.Product.Year</h5>
-        </div>        
+        </div>
         <div class="col-sm-3">
             <h5 class="font-weight-bolder">Storage</h5>
         </div>
         <div class="col-sm-9">
             <h5>@Model.Product.Storage GB</h5>
-        </div>        
+        </div>
         <div class="col-sm-3">
             <h5 class="font-weight-bolder">Material frame type</h5>
         </div>
         <div class="col-sm-9">
             <h5>@Model.Product.MaterialFrameType</h5>
-        </div>        
+        </div>
         <div class="col-sm-3">
             <h5 class="font-weight-bolder">Description</h5>
         </div>
@@ -64,5 +70,5 @@
 <br />
 
 <div>
-    <a class="btn btn-primary" asp-page="./List"><i class="fas fa-arrow-left mr-2"></i>Go back to list</a>
+    <a class="btn btn-outline-dark" asp-page="./Products"><i class="fas fa-arrow-left mr-2"></i>Go back to list</a>
 </div>

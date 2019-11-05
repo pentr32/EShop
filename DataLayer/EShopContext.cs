@@ -17,6 +17,7 @@ namespace DataLayer
         public DbSet<ShippingMethod> ShippingMethods { get; set; }
         public DbSet<PaymentMethod> PaymentMethods { get; set; }
         public DbSet<Brand> Brands { get; set; }
+        public DbSet<MaterialFrameType> MaterialFrameTypes { get; set; }
 
         public EShopContext(DbContextOptions options)
             : base(options)
@@ -95,17 +96,17 @@ namespace DataLayer
                 new PaymentMethod { PaymentMethodID = 6, Payment = "JCB Card" });
 
             modelBuilder.Entity<Brand>().HasData(
-                new Brand { BrandID = 1, Name = "Alcatel" },
-                new Brand { BrandID = 2, Name = "Apple" },
-                new Brand { BrandID = 3, Name = "Asus" },
-                new Brand { BrandID = 4, Name = "BlackBerry" },
-                new Brand { BrandID = 5, Name = "Google" },
-                new Brand { BrandID = 6, Name = "HTC" },
-                new Brand { BrandID = 7, Name = "Huawei" },
-                new Brand { BrandID = 8, Name = "LG" },
-                new Brand { BrandID = 9, Name = "OnePlus" },
-                new Brand { BrandID = 10, Name = "Samsung" },
-                new Brand { BrandID = 11, Name = "Sony" });
+                new Brand { BrandID = 1, Name = "Alcatel", LogoName = "Alcatel.png" },
+                new Brand { BrandID = 2, Name = "Apple", LogoName = "Apple.svg" },
+                new Brand { BrandID = 3, Name = "Asus", LogoName = "Asus.png"},
+                new Brand { BrandID = 4, Name = "BlackBerry", LogoName = "BlackBerry.png" },
+                new Brand { BrandID = 5, Name = "Google", LogoName = "Google.jpg" },
+                new Brand { BrandID = 6, Name = "HTC", LogoName = "HTC.png" },
+                new Brand { BrandID = 7, Name = "Huawei", LogoName = "Huawei.png" },
+                new Brand { BrandID = 8, Name = "LG", LogoName = "LG.png" },
+                new Brand { BrandID = 9, Name = "OnePlus", LogoName = "OnePlus.png" },
+                new Brand { BrandID = 10, Name = "Samsung", LogoName = "Samsung.png" },
+                new Brand { BrandID = 11, Name = "Sony", LogoName = "Sony.png" });
 
             modelBuilder.Entity<MaterialFrameType>().HasData(
                 new MaterialFrameType { MaterialFrameTypeID = 1, Type = "Plastic" },
@@ -399,6 +400,11 @@ namespace DataLayer
                     Year = new DateTime(2019, 2, 24),
                     MaterialFrameTypeID = 2
                 });
+
+            modelBuilder.Entity<Customer>().HasData(
+                new Customer { CustomerID = 1, Firstname = "Robert-Iulian", Lastname = "Zaharia", Address = "Sondgade 4", Email = "robe1819@elevcampus.dk" },
+                new Customer { CustomerID = 2, Firstname = "John", Lastname = "Hansen", Address = "Voldgade 12", Email = "john6531@elevcampus.dk" },
+                new Customer { CustomerID = 3, Firstname = "Jacob", Lastname = "Koefed", Address = "Hilsensgade 201", Email = "jaco8872@elevcampus.dk" });
 
             #endregion
         }

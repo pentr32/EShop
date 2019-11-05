@@ -1,5 +1,5 @@
 ﻿@page
-@model WebUI.Pages.EShops.ListModel
+@model WebUI.Pages.EShops.ProductsModel
 @{
     ViewData["Title"] = "List";
 }
@@ -29,6 +29,6 @@
 <div class="card-deck">
     @foreach (var product in Model.Products)
     {
-        <partial name="_Summary" model="product" />
+        <partial name="_SummaryProducts" model="product" />
     }
 </div>

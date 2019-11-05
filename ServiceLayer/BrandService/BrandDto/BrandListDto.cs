@@ -2,14 +2,12 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace DataLayer.Entities
+namespace ServiceLayer.BrandService.BrandDto
 {
-    public class Brand
+    public class BrandListDto
     {
         public int BrandID { get; set; }
         public string Name { get; set; }
         public string LogoName { get; set; }
-
-        public ICollection<Product> Products { get; set; }
     }
 }
