@@ -5,16 +5,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\DataLayer\DataLayer.csproj" />
+    <Compile Remove="OrderService\**" />
+    <EmbeddedResource Remove="OrderService\**" />
+    <None Remove="OrderService\**" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="CustomerService\Concrete\" />
-    <Folder Include="CustomerService\CustomerDto\" />
-    <Folder Include="CustomerService\QueryObjects\" />
-    <Folder Include="OrderService\Concrete\" />
-    <Folder Include="OrderService\QueryObjects\" />
-    <Folder Include="OrderService\OrderDto\" />
+    <ProjectReference Include="..\DataLayer\DataLayer.csproj" />
   </ItemGroup>
 
 </Project>
