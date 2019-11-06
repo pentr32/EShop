@@ -28,9 +28,22 @@ namespace ServiceLayer.ProductService.Concrete
             return query;
         }
 
-        public void AddProduct(Product newProduct)
+        public ProductListDto AddProduct(ProductListDto newProductDto)
         {
+            Product newProduct = new Product()
+            {
+                Model = newProductDto.Model,
+                Price = newProductDto.Price,
+                Color = newProductDto.Color,
+                ImageName = newProductDto.ImageName,
+                Description = newProductDto.Description,
+                Year = newProductDto.Year,
+                Storage = newProductDto.Storage,
+                BrandID = newProductDto.BrandID,
+                MaterialFrameTypeID = newProductDto.MaterialFrameTypeID
+            };
             _context.Products.Add(newProduct);
+            return newProductDto;
         }
 
         public Product GetProductByID(int productID)
@@ -40,27 +53,31 @@ namespace ServiceLayer.ProductService.Concrete
 
         public ProductListDto UpdateProduct(ProductListDto updateProduct)
         {
-            Product newUpdateProduct = new Product()
-            {
-                Model = updateProduct.Model,
-                Price = updateProduct.Price,
-                Color = updateProduct.Color,
-                ImageName = updateProduct.ImageName,
-                Description = updateProduct.Description,
-                Year = updateProduct.Year,
-                Storage = updateProduct.Storage,
-                BrandID = updateProduct.BrandID,
-                MaterialFrameTypeID = updateProduct.MaterialFrameTypeID
-            };
+            var updatedProduct = _context.Products
+                .Where(p => p.ProductID == updateProduct.ProductID)
+                .FirstOrDefault();
 
-            _context.Products.Update(newUpdateProduct);
+            updatedProduct.Model = updateProduct.Model;
+            updatedProduct.Price = updateProduct.Price;
+            updatedProduct.Color = updateProduct.Color;
+            updatedProduct.ImageName = updateProduct.ImageName;
+            updatedProduct.Description = updateProduct.Description;
+            updatedProduct.Year = updateProduct.Year;
+            updatedProduct.Storage = updateProduct.Storage;
+            updatedProduct.BrandID = updateProduct.BrandID;
+            updatedProduct.MaterialFrameTypeID = updateProduct.MaterialFrameTypeID;
+
+            _context.Products.Update(updatedProduct);
             return updateProduct;
         }
 
         public void DeleteProduct(int ProductID)
         {
-            var product = GetProductByID(ProductID);
-            if (product != null) _context.Products.Remove(product);
+            var thisProduct = _context.Products
+                .Where(p => p.ProductID == ProductID)
+                .FirstOrDefault();
+
+            if (thisProduct != null) _context.Products.Remove(thisProduct);
         }
 
         public int Commit()

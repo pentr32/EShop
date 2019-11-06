@@ -1,0 +1,72 @@
+﻿@page
+@model WebUI.Pages.EShops.NewProduct
+@{
+    ViewData["Title"] = "Add";
+}
+
+<div class="bg-farve-sort mb-2">
+    <h1 class="display-4">Add a new product.</h1>
+</div>
+
+<h2>Product</h2>
+<hr />
+
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Product.Brand" class="control-label"></label>
+                <select asp-for="Product.BrandID" asp-items="@(new SelectList(Model.Brands,"BrandID", "Name"))" class="form-control"></select>
+                <span asp-validation-for="Product.Brand" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Product.Model" class="control-label"></label>
+                <input asp-for="Product.Model" class="form-control" />
+                <span asp-validation-for="Product.Model" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Product.ImageName" class="control-label"></label>
+                <input asp-for="Product.ImageName" class="form-control" />
+                <span asp-validation-for="Product.ImageName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Product.Color" class="control-label"></label>
+                <input asp-for="Product.Color" class="form-control" />
+                <span asp-validation-for="Product.Color" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Product.Price" class="control-label"></label>
+                <input asp-for="Product.Price" class="form-control" />
+                <span asp-validation-for="Product.Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Product.Year" class="control-label"></label>
+                <input asp-for="Product.Year" class="form-control" />
+                <span asp-validation-for="Product.Year" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Product.Storage" class="control-label"></label>
+                <input asp-for="Product.Storage" class="form-control" />
+                <span asp-validation-for="Product.Storage" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Product.MaterialFrameType" class="control-label"></label>
+                <select asp-for="Product.MaterialFrameTypeID" asp-items="@(new SelectList(Model.MaterialFrameTypes, "MaterialFrameTypeID", "Type"))" class="form-control"></select>
+                <span asp-validation-for="Product.MaterialFrameType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Product.Description" class="control-label"></label>
+                <textarea asp-for="Product.Description" class="form-control"></textarea>
+                <span asp-validation-for="Product.Description" class="text-danger"></span>
+            </div>
+            <div class="form-inline">
+                <a class="btn btn-outline-dark mr-3" asp-page="./Products"><i class="fas fa-arrow-left mr-2"></i>Go back to list</a>
+                <button type="submit" class="btn btn-success">
+                    <i class="fas fa-plus mr-2"></i>Add this product
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+

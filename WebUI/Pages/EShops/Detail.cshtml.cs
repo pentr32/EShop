@@ -12,6 +12,7 @@ namespace WebUI.Pages.EShops
 {
     public class DetailModel : PageModel
     {
+        [BindProperty]
         public ProductListDto Product { get; set; }
 
         private readonly ListProductService _productService;
@@ -37,6 +38,14 @@ namespace WebUI.Pages.EShops
                 return RedirectToPage("./NotFound");
             }
             return Page();
+        }
+
+        public IActionResult OnPost()
+        {
+            if (Product.ProductID > 0) _productService.DeleteProduct(Product.ProductID);
+
+            _productService.Commit();
+            return RedirectToPage("/EShops/Products");
         }
     }
 }

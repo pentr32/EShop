@@ -16,59 +16,63 @@
 <div>
     <h2>@Model.Product.Brand</h2>
     <hr />
-    <div class="row">
-        <div class="col-sm-3">
-            <h5 class="font-weight-bolder">ID</h5>
+    <form method="post">
+        <div class="row">
+            <div class="col-sm-3">
+                <h5 class="font-weight-bolder">ID</h5>
+            </div>
+            <div class="col-sm-9">
+                @Model.Product.ProductID
+            </div>
+            <div class="col-sm-3">
+                <h5 class="font-weight-bolder">Model</h5>
+            </div>
+            <div class="col-sm-9">
+                <h5>@Model.Product.Model</h5>
+            </div>
+            <div class="col-sm-3">
+                <h5 class="font-weight-bolder">Color</h5>
+            </div>
+            <div class="col-sm-9">
+                <h5>@Model.Product.Color</h5>
+            </div>
+            <div class="col-sm-3">
+                <h5 class="font-weight-bolder">Price</h5>
+            </div>
+            <div class="col-sm-9">
+                <h5>@Model.Product.Price DKK</h5>
+            </div>
+            <div class="col-sm-3">
+                <h5 class="font-weight-bolder">Date</h5>
+            </div>
+            <div class="col-sm-9">
+                <h5>@Model.Product.Year</h5>
+            </div>
+            <div class="col-sm-3">
+                <h5 class="font-weight-bolder">Storage</h5>
+            </div>
+            <div class="col-sm-9">
+                <h5>@Model.Product.Storage GB</h5>
+            </div>
+            <div class="col-sm-3">
+                <h5 class="font-weight-bolder">Material frame type</h5>
+            </div>
+            <div class="col-sm-9">
+                <h5>@Model.Product.MaterialFrameType</h5>
+            </div>
+            <div class="col-sm-3">
+                <h5 class="font-weight-bolder">Description</h5>
+            </div>
+            <div class="col-sm-9">
+                <h5>@Model.Product.Description</h5>
+            </div>
         </div>
-        <div class="col-sm-9">
-            @Model.Product.ProductID
+        <div class="form-inline">
+            <a class="btn btn-outline-dark mr-2" asp-page="./Products"><i class="fas fa-arrow-left mr-2"></i>Go back to list</a>
+            <button type="submit" class="btn btn-danger">
+                <i class="far fa-trash-alt mr-2"></i>Remove
+            </button>
         </div>
-        <div class="col-sm-3">
-            <h5 class="font-weight-bolder">Model</h5>
-        </div>
-        <div class="col-sm-9">
-            <h5>@Model.Product.Model</h5>
-        </div>
-        <div class="col-sm-3">
-            <h5 class="font-weight-bolder">Color</h5>
-        </div>
-        <div class="col-sm-9">
-            <h5>@Model.Product.Color</h5>
-        </div>
-        <div class="col-sm-3">
-            <h5 class="font-weight-bolder">Price</h5>
-        </div>
-        <div class="col-sm-9">
-            <h5>@Model.Product.Price DKK</h5>
-        </div>
-        <div class="col-sm-3">
-            <h5 class="font-weight-bolder">Date</h5>
-        </div>
-        <div class="col-sm-9">
-            <h5>@Model.Product.Year</h5>
-        </div>
-        <div class="col-sm-3">
-            <h5 class="font-weight-bolder">Storage</h5>
-        </div>
-        <div class="col-sm-9">
-            <h5>@Model.Product.Storage GB</h5>
-        </div>
-        <div class="col-sm-3">
-            <h5 class="font-weight-bolder">Material frame type</h5>
-        </div>
-        <div class="col-sm-9">
-            <h5>@Model.Product.MaterialFrameType</h5>
-        </div>
-        <div class="col-sm-3">
-            <h5 class="font-weight-bolder">Description</h5>
-        </div>
-        <div class="col-sm-9">
-            <h5>@Model.Product.Description</h5>
-        </div>
-    </div>
+    </form>
 </div>
 <br />
-
-<div>
-    <a class="btn btn-outline-dark" asp-page="./Products"><i class="fas fa-arrow-left mr-2"></i>Go back to list</a>
-</div>
