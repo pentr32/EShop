@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using ServiceLayer.BrandService.BrandDto;
 using ServiceLayer.BrandService.Concrete;
+using ServiceLayer.BrandService.QueryObjects;
 using ServiceLayer.MaterialFrameTypeService.Concrete;
 using ServiceLayer.MaterialFrameTypeService.MaterialFrameTypeDto;
 using ServiceLayer.ProductService.Concrete;
@@ -20,10 +21,10 @@ namespace WebUI.Pages.EShops
 
         [BindProperty]
         public ProductListDto Product { get; set; }
-        private readonly ListProductService _productService;
-        private readonly ListBrandService _brandService;
-        private readonly ListMaterialFrameTypeService _materialFrameTypeService;
-        public NewProduct(ListProductService productService, ListBrandService brandService, ListMaterialFrameTypeService materialFrameTypeService)
+        private readonly IListProductService _productService;
+        private readonly IListBrandService _brandService;
+        private readonly IListMaterialFrameTypeService _materialFrameTypeService;
+        public NewProduct(IListProductService productService, IListBrandService brandService, IListMaterialFrameTypeService materialFrameTypeService)
         {
             _productService = productService;
             _brandService = brandService;
@@ -32,7 +33,12 @@ namespace WebUI.Pages.EShops
 
         public void OnGet()
         {
-            Brands = _brandService.SortFilterPage().ToList();
+            BrandListSortOptions option = new BrandListSortOptions()
+            {
+                FilterBy = BrandFilterBy.NoFilter
+            };
+
+            Brands = _brandService.SortFilterPage(option).ToList();
             MaterialFrameTypes = _materialFrameTypeService.SortFilterPage().ToList();
         }
 

@@ -8,7 +8,7 @@ using System.Text;
 
 namespace ServiceLayer.ProductService.Concrete
 {
-    public class ProductFilterDropdownService
+    public class ProductFilterDropdownService : IProductFilterDropdownService
     {
         private readonly EShopContext _context;
 

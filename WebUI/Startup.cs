@@ -30,10 +30,10 @@ namespace WebUI
         {
             services.AddDbContext<EShopContext>();
 
-            services.AddScoped<ListProductService>();
-            services.AddScoped<ListBrandService>();
-            services.AddScoped<ListMaterialFrameTypeService>();
-            services.AddScoped<ProductFilterDropdownService>();
+            services.AddScoped<IListProductService, ListProductService>();
+            services.AddScoped<IListBrandService, ListBrandService>();
+            services.AddScoped<IListMaterialFrameTypeService, ListMaterialFrameTypeService>();
+            services.AddScoped<IProductFilterDropdownService, ProductFilterDropdownService>();
 
             services.AddDistributedMemoryCache();
 

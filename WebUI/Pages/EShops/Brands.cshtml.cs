@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using ServiceLayer.BrandService.BrandDto;
 using ServiceLayer.BrandService.Concrete;
+using ServiceLayer.BrandService.QueryObjects;
 
 namespace WebUI.Pages.EShops
 {
@@ -13,16 +14,21 @@ namespace WebUI.Pages.EShops
     {
         public IEnumerable<BrandListDto> Brands { get; set; }
 
-        private readonly ListBrandService _brandService;
+        private readonly IListBrandService _brandService;
 
-        public BrandsModel(ListBrandService brandService)
+        public BrandsModel(IListBrandService brandService)
         {
             _brandService = brandService;
 
         }
         public void OnGet()
         {
-            Brands = _brandService.SortFilterPage().ToList();
+            BrandListSortOptions option = new BrandListSortOptions()
+            {
+                FilterBy = BrandFilterBy.NoFilter
+            };
+
+            Brands = _brandService.SortFilterPage(option).ToList();
         }
     }
 }

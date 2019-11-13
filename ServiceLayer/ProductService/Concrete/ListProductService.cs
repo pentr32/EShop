@@ -7,10 +7,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace ServiceLayer.ProductService.Concrete
 {
-    public class ListProductService
+    public class ListProductService : IListProductService
     {
         private readonly EShopContext _context;
         public ListProductService(EShopContext context)
@@ -84,6 +85,11 @@ namespace ServiceLayer.ProductService.Concrete
         {
             _context.SaveChanges();
             return 0;
+        }
+
+        public async Task CommitAsync()
+        {
+            await _context.SaveChangesAsync();
         }
     }
 }

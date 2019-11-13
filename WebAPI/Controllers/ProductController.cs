@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using System.Xml;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -18,9 +19,9 @@ namespace WebAPI.Controllers
     [ApiController]
     public class ProductController : ControllerBase
     {
-        private readonly ListProductService _productService;
+        private readonly IListProductService _productService;
 
-        public ProductController(ListProductService productService)
+        public ProductController(IListProductService productService)
         {
             _productService = productService;
         }
@@ -66,6 +67,15 @@ namespace WebAPI.Controllers
             };
 
             return await _productService.SortFilterPage(Option).ToListAsync();
+        }
+
+        [HttpPost]
+        public async Task<ActionResult<ProductListDto>> PostTodoItem(ProductListDto Product)
+        {
+            _productService.AddProduct(Product);
+            await _productService.CommitAsync();
+
+            return CreatedAtAction(nameof(GetProductByFullCustom), new { ProductID = Product.ProductID }, Product);
         }
     }
 }

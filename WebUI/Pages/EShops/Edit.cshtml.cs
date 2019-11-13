@@ -25,11 +25,11 @@ namespace WebUI.Pages.EShops
         [BindProperty]
         public ProductListDto Product { get; set; }
 
-        private readonly ListProductService _productService;
-        private readonly ListBrandService _brandService;
-        private readonly ListMaterialFrameTypeService _materialFrameTypeService;
+        private readonly IListProductService _productService;
+        private readonly IListBrandService _brandService;
+        private readonly IListMaterialFrameTypeService _materialFrameTypeService;
 
-        public EditModel(ListProductService productService, ListBrandService brandService, ListMaterialFrameTypeService materialFrameTypeService)
+        public EditModel(IListProductService productService, IListBrandService brandService, IListMaterialFrameTypeService materialFrameTypeService)
         {
             _productService = productService;
             _brandService = brandService;
@@ -45,8 +45,13 @@ namespace WebUI.Pages.EShops
                 FilterValue = ProductID.ToString()
             };
 
+            BrandListSortOptions option = new BrandListSortOptions()
+            {
+                FilterBy = BrandFilterBy.NoFilter
+            };
+
             Product = _productService.SortFilterPage(Option).First();
-            Brands = _brandService.SortFilterPage().ToList();
+            Brands = _brandService.SortFilterPage(option).ToList();
             MaterialFrameTypes = _materialFrameTypeService.SortFilterPage().ToList();
 
             if (Product == null)

@@ -22,9 +22,9 @@ namespace WebUI.Pages.EShops
         public ProductFilterBy FilterBy { get; set; }
         public string SearchString { get; set; }
 
-        private readonly ListProductService _productService;
+        private readonly IListProductService _productService;
 
-        public ProductsModel(ListProductService productService)
+        public ProductsModel(IListProductService productService)
         {
             _productService = productService;
         }

@@ -9,7 +9,7 @@ using System.Text;
 
 namespace ServiceLayer.MaterialFrameTypeService.Concrete
 {
-    public class ListMaterialFrameTypeService
+    public class ListMaterialFrameTypeService : IListMaterialFrameTypeService
     {
         private readonly EShopContext _context;
         public ListMaterialFrameTypeService(EShopContext context)

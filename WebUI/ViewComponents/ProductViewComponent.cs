@@ -10,9 +10,9 @@ namespace WebUI.ViewComponents
 {
     public class ProductViewComponent : ViewComponent
     {
-        private readonly ListProductService _productService;
+        private readonly IListProductService _productService;
 
-        public ProductViewComponent(ListProductService productService)
+        public ProductViewComponent(IListProductService productService)
         {
             _productService = productService;
         }

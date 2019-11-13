@@ -15,9 +15,9 @@ namespace WebUI.Pages.EShops
         [BindProperty]
         public ProductListDto Product { get; set; }
 
-        private readonly ListProductService _productService;
+        private readonly IListProductService _productService;
 
-        public DetailModel(ListProductService productService)
+        public DetailModel(IListProductService productService)
         {
             _productService = productService;
         }

@@ -9,7 +9,7 @@ using System.Text;
 
 namespace ServiceLayer.BrandService.Concrete
 {
-    public class ListBrandService
+    public class ListBrandService : IListBrandService
     {
         private readonly EShopContext _context;
         public ListBrandService(EShopContext context)
@@ -17,11 +17,12 @@ namespace ServiceLayer.BrandService.Concrete
             _context = context;
         }
 
-        public IQueryable<BrandListDto> SortFilterPage()
+        public IQueryable<BrandListDto> SortFilterPage(BrandListSortOptions option)
         {
             var query = _context.Brands
                 .AsNoTracking()
-                .MapBrandToDto();
+                .MapBrandToDto()
+                .FilterBrandBy(option.FilterBy, option.FilterValue);
             return query;
         }
     }
