@@ -69,13 +69,57 @@ namespace WebAPI.Controllers
             return await _productService.SortFilterPage(Option).ToListAsync();
         }
 
+        [HttpPut("{ProductID}")]
+        public async Task<IActionResult> PutTodoItem(int ProductID, ProductListDto Product)
+        {
+            if (ProductID != Product.ProductID)
+            {
+                return BadRequest();
+            }
+
+            _productService.UpdateProduct(Product);
+
+            try
+            {
+                await _productService.CommitAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (_productService.GetProductByID(ProductID) != null)
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+
+            return NoContent();
+        }
+
         [HttpPost]
-        public async Task<ActionResult<ProductListDto>> PostTodoItem(ProductListDto Product)
+        public async Task<ActionResult<ProductListDto>> PostProduct(ProductListDto Product)
         {
             _productService.AddProduct(Product);
             await _productService.CommitAsync();
 
             return CreatedAtAction(nameof(GetProductByFullCustom), new { ProductID = Product.ProductID }, Product);
+        }
+
+        [HttpDelete("{ProductID}")]
+        public async Task<ActionResult<ProductListDto>> DeleteProduct(int ProductID)
+        {
+            var product = _productService.GetProductByID(ProductID);
+            if (product == null)
+            {
+                return NotFound();
+            }
+
+            _productService.DeleteProduct(product.ProductID);
+            await _productService.CommitAsync();
+
+            return CreatedAtAction(nameof(GetProductByFullCustom), new { ProductID = product.ProductID }, product);
         }
     }
 }

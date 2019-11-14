@@ -9,7 +9,7 @@ using System.Text;
 
 namespace ServiceLayer.CustomerService.Concrete
 {
-    public class ListCustomerService
+    public class ListCustomerService : IListCustomerService
     {
         private readonly EShopContext _context;
         public ListCustomerService(EShopContext context)

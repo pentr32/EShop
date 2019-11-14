@@ -17,6 +17,7 @@ using Microsoft.Extensions.Logging;
 using ServiceLayer.ProductService.Concrete;
 using Microsoft.OpenApi.Models;
 using ServiceLayer.BrandService.Concrete;
+using ServiceLayer.MaterialFrameTypeService.Concrete;
 
 namespace WebAPI
 {
@@ -45,6 +46,8 @@ namespace WebAPI
             services.AddDbContext<EShopContext>();
             services.AddScoped<IListProductService, ListProductService>();
             services.AddScoped<IListBrandService, ListBrandService>();
+            services.AddScoped<IListMaterialFrameTypeService, ListMaterialFrameTypeService>();
+
             services.AddControllers();
 
             services.AddSwaggerGen(c =>
