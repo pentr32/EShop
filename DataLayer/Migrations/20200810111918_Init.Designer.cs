@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataLayer.Migrations
 {
     [DbContext(typeof(EShopContext))]
-    [Migration("20191104232232_DataSeeding")]
-    partial class DataSeeding
+    [Migration("20200810111918_Init")]
+    partial class Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -28,6 +28,9 @@ namespace DataLayer.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("LogoName")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
@@ -39,56 +42,67 @@ namespace DataLayer.Migrations
                         new
                         {
                             BrandID = 1,
+                            LogoName = "Alcatel.png",
                             Name = "Alcatel"
                         },
                         new
                         {
                             BrandID = 2,
+                            LogoName = "Apple.svg",
                             Name = "Apple"
                         },
                         new
                         {
                             BrandID = 3,
+                            LogoName = "Asus.png",
                             Name = "Asus"
                         },
                         new
                         {
                             BrandID = 4,
+                            LogoName = "BlackBerry.png",
                             Name = "BlackBerry"
                         },
                         new
                         {
                             BrandID = 5,
+                            LogoName = "Google.jpg",
                             Name = "Google"
                         },
                         new
                         {
                             BrandID = 6,
+                            LogoName = "HTC.png",
                             Name = "HTC"
                         },
                         new
                         {
                             BrandID = 7,
+                            LogoName = "Huawei.png",
                             Name = "Huawei"
                         },
                         new
                         {
                             BrandID = 8,
+                            LogoName = "LG.png",
                             Name = "LG"
                         },
                         new
                         {
                             BrandID = 9,
+                            LogoName = "OnePlus.png",
                             Name = "OnePlus"
                         },
                         new
                         {
                             BrandID = 10,
+                            LogoName = "Samsung.png",
                             Name = "Samsung"
                         },
                         new
                         {
                             BrandID = 11,
+                            LogoName = "Sony.png",
                             Name = "Sony"
                         });
                 });
@@ -115,6 +129,32 @@ namespace DataLayer.Migrations
                     b.HasKey("CustomerID");
 
                     b.ToTable("Customers");
+
+                    b.HasData(
+                        new
+                        {
+                            CustomerID = 1,
+                            Address = "Sondgade 4",
+                            Email = "robe1819@elevcampus.dk",
+                            Firstname = "Robert-Iulian",
+                            Lastname = "Zaharia"
+                        },
+                        new
+                        {
+                            CustomerID = 2,
+                            Address = "Voldgade 12",
+                            Email = "john6531@elevcampus.dk",
+                            Firstname = "John",
+                            Lastname = "Hansen"
+                        },
+                        new
+                        {
+                            CustomerID = 3,
+                            Address = "Hilsensgade 201",
+                            Email = "jaco8872@elevcampus.dk",
+                            Firstname = "Jacob",
+                            Lastname = "Koefed"
+                        });
                 });
 
             modelBuilder.Entity("DataLayer.Entities.MaterialFrameType", b =>
@@ -129,7 +169,7 @@ namespace DataLayer.Migrations
 
                     b.HasKey("MaterialFrameTypeID");
 
-                    b.ToTable("MaterialFrameType");
+                    b.ToTable("MaterialFrameTypes");
 
                     b.HasData(
                         new
